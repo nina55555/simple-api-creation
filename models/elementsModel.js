@@ -1,5 +1,7 @@
+//modules necessaires:
 const mongoose = require ('mongoose');
 
+//déclaration du model via le module mongoose
 const elementsModel = mongoose.model(
     "défilé",
     {
@@ -11,9 +13,9 @@ const elementsModel = mongoose.model(
             type: String,
             require: true
         }
-
     },
     "elements"
 )
 
+//exportation du model:
 module.exports = {elementsModel}
