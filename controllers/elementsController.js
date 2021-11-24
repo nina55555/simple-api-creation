@@ -20,6 +20,20 @@ router.get('/', (req, res) => {
 });
 
 
+//pour créer des articles:
+router.post('/',(req, res) => {
+    const newRecord = new ElementsModel({
+        name: req.body.name,
+        description: req.body.description
+    });
+    newRecord.save((err, docs) => {
+         if (!err) res.send (docs);
+        else console.log ('error creating new data:' +err)
+    })
+} )
+
+
+
 
     
 //exportation du router:
