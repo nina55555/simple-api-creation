@@ -2,7 +2,8 @@
  const express = require('express');
 const { use } = require('./controllers/elementsController');
  const app = express();
- const mongoose =require('mongoose')
+ const mongoose =require('mongoose');
+ const cors = require('cors');
 
 
  //récupération des fichiers externes necessaire:
@@ -17,6 +18,9 @@ const { use } = require('./controllers/elementsController');
  //app.use(express.urlencoded({extended: false}) );
  //*en cas de warning
  //mongoose.set('useFindAndModify', false);
+ //pour gerer l'accés à l'api au public
+ //app.use(cors({origin: '//adresse du site a qui l'ont veut donner accès'}))
+ app.use(cors())
  app.use('/articles', elementsControl);
  
 
