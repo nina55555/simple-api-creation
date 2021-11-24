@@ -1,17 +1,26 @@
 //modules necessaires:
 const express = require('express');
 const router = express.Router();
+const ObjectId =require('mongoose').Types.ObjectId;
+
+
+
+ 
 
 //recuperation des fichiers externes necessaires:
-const {elementsModel} = require('../models/elementsModel');
+const { ElementsModel } = require('../models/elementsModel');
 
-//déclaration de la fonction du router:
-router.get('/', (req, res) => 
-    elementsModel.find((err, docs) => {
+//déclaration des fonctions du router methode CRUD:
+//pour lire les articles:
+router.get('/', (req, res) => {
+    ElementsModel.find((err, docs) => {
         if(!err) res.send (docs);
         else console.log ('error:'+ err);
     })
-)
+});
 
+
+
+    
 //exportation du router:
-module.exports = router;
+module.exports = router
