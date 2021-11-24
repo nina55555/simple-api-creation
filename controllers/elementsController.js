@@ -33,6 +33,28 @@ router.post('/',(req, res) => {
 } )
 
 
+//pour modifier des articles:
+router.put('/:id', (req,res) =>{
+    if(!ObjectId.isValid(req.params.id)
+    )
+    return res.status(400).send('id non valide'+req.params.id)
+
+    const elementModifié = {
+        name: req.body.name,
+        description: req.body.description
+    };
+
+    ElementsModel.findByIdAndUpdate(
+        req.params.id,
+        {$set: elementModifié},
+        {new: true},
+        (err, docs) =>{
+            if(!err) res.send(docs);
+            else console.log('update error:'+err);
+        }
+    )
+});
+
 
 
     
