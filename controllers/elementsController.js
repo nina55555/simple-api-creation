@@ -55,6 +55,19 @@ router.put('/:id', (req,res) =>{
     )
 });
 
+//pour effacer un article:
+router.delete('/:id', (req,res) => {
+    if(!ObjectId.isValid(req.params.id) )
+    return res.status(404).send('detete error:' +err)
+
+    ElementsModel.findByIdAndRemove(
+        req.params.id, 
+        (err, docs) =>{
+        if(!err)res.send(docs);
+        else console.log('delete error:'+err)
+        }
+    )
+});
 
 
     
