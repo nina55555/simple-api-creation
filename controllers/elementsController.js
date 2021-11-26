@@ -30,7 +30,7 @@ router.post('/',(req, res) => {
          if (!err) res.send (docs);
         else console.log ('error creating new data:' +err)
     })
-} )
+} );
 
 
 //pour modifier des articles:

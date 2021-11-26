@@ -1,6 +1,5 @@
  //modules necessaires:
  const express = require('express');
-const { use } = require('./controllers/elementsController');
  const app = express();
  const mongoose =require('mongoose');
  const cors = require('cors');
@@ -20,9 +19,9 @@ const { use } = require('./controllers/elementsController');
  //mongoose.set('useFindAndModify', false);
  //pour gerer l'accés à l'api au public
  //app.use(cors({origin: '//adresse du site a qui l'ont veut donner accès'}))
- app.use(cors())
- app.use('/articles', elementsControl);
+ app.use(cors());
+ app.use('/', elementsControl);
  
 
  //lancement du port:
- app.listen(5500, () => console.log("Server listening on port 5500") );
+ app.listen(5000, () => console.log("Server listening on port 5500") );
